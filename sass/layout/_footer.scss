@@ -38,9 +38,12 @@
     color: var(--accent-color);
 }
 
-.footer-soc {
+.footer-soc--join {
     margin-left: 70px;
-    margin-right: 93px;
+    
+}
+.footer-soc--subscribe {
+    margin-left: 93px;
 }
 
 .foter-soc__text {

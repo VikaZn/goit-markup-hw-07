@@ -137,3 +137,7 @@
     transform: translateY(0);
     opacity: 1;
 }
+.portfolio__link:focus .cards-thumb__text {
+        transform: translateY(0);
+        opacity: 1;
+    }

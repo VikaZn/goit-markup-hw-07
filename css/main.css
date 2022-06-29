@@ -203,7 +203,7 @@ ul {
   text-align: center;
   letter-spacing: 0.06em;
   color: var(--third-text-color);
-  background-color: #188ce8;
+  background-color: var(--accent-color);
   cursor: pointer;
   display: inline-block;
   min-width: 200px;
@@ -215,8 +215,7 @@ ul {
 
 .hero__btn:hover,
 .hero__btn:focus {
-  color: #188ce8;
-  background-color: var(--background-color-general);
+  background-color: #188ce8;
 }
 
 .basic {
@@ -312,11 +311,11 @@ ul {
   fill: currentColor;
 }
 
-.Pictures {
+.pictures {
   padding-bottom: 94px;
 }
 
-.Pictures__title {
+.pictures__title {
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
@@ -326,42 +325,41 @@ ul {
   margin-bottom: 50px;
 }
 
-.Pictures__list {
+.pictures__list {
   display: flex;
 }
 
-.Pictures__item:not(:last-child) {
+.pictures__item:not(:last-child) {
   margin-right: 30px;
 }
 
-.Pictures__thumb {
+.pictures-thumb {
   position: relative;
   width: 370px;
   height: 294px;
 }
 
-.Pictures__thumb::before {
+.pictures-thumb::before {
   content: "";
   position: absolute;
-  display: inline-block;
-  bottom: 0px;
-  width: 100%;
-  height: 70px;
-  background-color: rgba(47, 48, 58, 0.8);
 }
 
-.Pictures__img {
+.pictures-thumb__img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-.Pictures__text {
+.pictures-thumb__text {
   position: absolute;
-  width: 100%;
-  padding: 27px 0px;
   bottom: 0;
   left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(47, 48, 58, 0.8);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -514,9 +512,12 @@ ul {
   color: var(--accent-color);
 }
 
-.footer-soc {
+.footer-soc--join {
   margin-left: 70px;
-  margin-right: 93px;
+}
+
+.footer-soc--subscribe {
+  margin-left: 93px;
 }
 
 .foter-soc__text {
@@ -740,6 +741,11 @@ ul {
   opacity: 1;
 }
 
+.portfolio__link:focus .cards-thumb__text {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .backdrop {
   position: fixed;
   left: 0;
@@ -747,6 +753,7 @@ ul {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -760,7 +767,7 @@ ul {
 }
 
 .modal {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
@@ -770,7 +777,7 @@ ul {
   background-color: #fff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-btn {
@@ -780,11 +787,21 @@ ul {
   justify-content: center;
   right: 8px;
   top: 8px;
-  background-color: transparent;
   border-radius: 50%;
   width: 30px;
   height: 30px;
+  background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn:hover .icon-close {
+  fill: var(--accent-color);
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  box-shadow: none;
 }
 
 .form {
@@ -807,7 +824,7 @@ ul {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-top: 12px;
 }
 
 .form-label {
@@ -858,7 +875,6 @@ textarea {
   line-height: 1.17;
   letter-spacing: 0.01em;
   height: 120px;
-  margin-bottom: 10px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -877,7 +893,7 @@ textarea:focus {
 
 .form-chek {
   padding-left: 14px;
-  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .icon-chek {
@@ -898,6 +914,12 @@ textarea:focus {
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+.form-check-input:focus + .icon-chek {
+  box-sizing: content-box;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
 }
 
 .form-check-input:checked + .icon-chek {
@@ -926,7 +948,7 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 30px auto 0px auto;
   padding: 10px 56px;
   border: none;
   border-radius: 4px;

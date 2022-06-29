@@ -46,7 +46,7 @@
     text-align: center;
     letter-spacing: 0.06em;
     color: var(--third-text-color);
-    background-color: #188ce8;
+    background-color: var(--accent-color);
     cursor: pointer;
 
     display: inline-block;
@@ -61,6 +61,5 @@
 
 .hero__btn:hover,
 .hero__btn:focus {
-    color: #188ce8;
-    background-color: var(--background-color-general);
+    background-color: #188ce8;
 }
